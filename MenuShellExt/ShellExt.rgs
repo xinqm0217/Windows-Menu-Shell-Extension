@@ -1,0 +1,72 @@
+HKLM
+{
+	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Windows
+			{
+				NoRemove CurrentVersion
+				{
+					NoRemove 'Shell Extensions'
+					{
+						NoRemove Approved
+						{
+							 val {05A7DE85-1D45-4AEF-B9B5-1778EB7BB17C} = s 'jdMenuShellExt'
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+HKCR
+{
+	jdMenuShellExt.ShellExt.1 = s 'jdMenuShellExt ShellExt Class'
+	{
+		CLSID = s '{05A7DE85-1D45-4AEF-B9B5-1778EB7BB17C}'
+	}
+	jdMenuShellExt.ShellExt = s 'jdMenuShellExt Class'
+	{		
+		CurVer = s 'jdMenuShellExt.ShellExt.1'
+	} 
+	
+	NoRemove CLSID
+	{
+		ForceRemove {05A7DE85-1D45-4AEF-B9B5-1778EB7BB17C} = s 'jdMenuShellExt Class'
+		{
+			ProgID = s 'jdMenuShellExt.ShellExt.1'
+			VersionIndependentProgID = s 'jdMenuShellExt.ShellExt'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{0E736200-5505-4648-BAA3-1A6693B0F82C}'
+			Version = s '1.0'
+		}
+	}
+
+	NoRemove Directory
+	{
+		NoRemove shellex
+		{
+			NoRemove ContextMenuHandlers
+			{
+				ForceRemove 'jdMenuShellExt' = s '{05A7DE85-1D45-4AEF-B9B5-1778EB7BB17C}'
+			}
+		}
+	}
+
+	NoRemove *
+	{
+		NoRemove shellex
+		{
+			NoRemove ContextMenuHandlers
+			{
+				ForceRemove 'jdMenuShellExt' = s '{05A7DE85-1D45-4AEF-B9B5-1778EB7BB17C}'
+			}
+		}
+	}
+}

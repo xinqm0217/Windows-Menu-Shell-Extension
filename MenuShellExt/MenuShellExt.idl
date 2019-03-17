@@ -1,0 +1,35 @@
+// MenuShellExt.idl : MenuShellExt的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(MenuShellExt.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(DCFD6C08-FD20-474F-AF0B-9D54E79B7273),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IShellExt : IDispatch{
+};
+[
+	uuid(0E736200-5505-4648-BAA3-1A6693B0F82C),
+	version(1.0),
+]
+library MenuShellExtLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(05A7DE85-1D45-4AEF-B9B5-1778EB7BB17C)		
+	]
+	coclass ShellExt
+	{
+		[default] interface IShellExt;
+	};
+};
+
+import "shobjidl.idl";
